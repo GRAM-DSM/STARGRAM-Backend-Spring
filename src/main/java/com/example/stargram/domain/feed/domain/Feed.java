@@ -32,5 +32,5 @@ public class Feed extends BaseTimeEntity {
 
     @NotNull
     @Column(length = 10)
-    private String field;
+    private String category;
 }
