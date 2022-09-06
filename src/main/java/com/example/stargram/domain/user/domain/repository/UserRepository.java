@@ -1,4 +1,7 @@
 package com.example.stargram.domain.user.domain.repository;
 
-public class UserRepository {
+import com.example.stargram.domain.user.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
 }
