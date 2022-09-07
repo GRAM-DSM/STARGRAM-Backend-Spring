@@ -1,16 +1,17 @@
 package com.example.stargram.global.entity;
 
 import lombok.Getter;
+import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
+
 
 @Getter
 @MappedSuperclass
 public abstract class BaseTimeEntity {
 
-    @Column(nullable = false)
-    private final ZonedDateTime create_at = ZonedDateTime.now();
+    @CreatedDate
+    private LocalDateTime create_at;
 
 }
