@@ -19,7 +19,7 @@ public class User {
 
     @NotNull
     @Column(columnDefinition = "VARCHAR(10)")
-    private String account_id;
+    private String accountId;
 
     @NotNull
     @Column(columnDefinition = "VARCHAR(320)")
