@@ -1,4 +1,4 @@
-package com.example.stargram.domain.feed.presentation.request;
+package com.example.stargram.domain.feed.presentation.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +14,7 @@ public class CreateFeedRequest {
     private String category;
 
     private String url;
+
 
 
 }
