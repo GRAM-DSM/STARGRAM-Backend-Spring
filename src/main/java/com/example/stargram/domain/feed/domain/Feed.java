@@ -4,6 +4,7 @@ package com.example.stargram.domain.feed.domain;
 import com.example.stargram.domain.user.domain.User;
 import com.example.stargram.global.entity.BaseTimeEntity;
 import com.sun.istack.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -33,4 +34,12 @@ public class Feed extends BaseTimeEntity {
     @NotNull
     @Column(length = 10)
     private String category;
+
+    @Builder
+    public Feed (String title, String content, String category, User user){
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.user = user;
+    }
 }
