@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Null;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -19,30 +18,29 @@ public class User {
     private Long id;
 
     @NotNull
-    @Column(length = 10)
+    @Column(columnDefinition = "VARCHAR(10)")
     private String account_id;
 
     @NotNull
-    @Column(length = 320)
+    @Column(columnDefinition = "VARCHAR(320)")
     private String email;
 
     @NotNull
-    @Column(length = 256)
+    @Column(columnDefinition = "VARCHAR(256)")
     private String password;
 
     @NotNull
-    @Column(length = 5)
+    @Column(columnDefinition = "VARCHAR(5)")
     private String name;
 
     @NotNull
-    @Column(length = 30)
+    @Column(columnDefinition = "VARCHAR(30)")
     private String introduce;
 
     @NotNull
-    @Column(length = 300)
+    @Column(columnDefinition = "VARCHAR(300)")
     private String photo;
 
-    @Null
     private String link;
 
 }
