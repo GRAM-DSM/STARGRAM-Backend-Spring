@@ -5,6 +5,7 @@ import com.example.stargram.domain.feed.domain.Feed;
 import com.example.stargram.domain.user.domain.User;
 import com.example.stargram.global.entity.BaseTimeEntity;
 import com.sun.istack.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +15,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Comment extends BaseTimeEntity {
+public class Comments extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +34,11 @@ public class Comment extends BaseTimeEntity {
     @NotNull
     @Column(columnDefinition = "VARCHAR(255)")
     private String content;
+
+    @Builder
+    public Comments(String content, Feed feed, User user) {
+        this.content = content;
+        this.feed = feed;
+        this.user = user;
+    }
 }
