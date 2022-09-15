@@ -45,4 +45,9 @@ public class Feed extends BaseTimeEntity {
         this.category = category;
         this.user = user;
     }
+
+    public void updateFeed(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
