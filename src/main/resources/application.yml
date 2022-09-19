@@ -1,19 +1,24 @@
 spring:
   jpa:
     database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     hibernate:
-      ddl-auto: update
-    generate-ddl: true
+      ddl-auto: create
     open-in-view: false
 
   jackson:
     property-naming-strategy: SNAKE_CASE
 
   datasource:
-    url: jdbc:mysql://localhost:3306/${DBNAME}?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/${DBNAME}?serverTimezone=Asia/Seoul
     username: ${USER}
     password: ${PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+jwt:
+  header: ${HEADER}
+  prefix: ${PREFIX}
+  secret: ${SECRET}
+  exp:
+    access: ${ACCESS}
+    refresh: ${REFRESH}
