@@ -1,11 +1,11 @@
 package com.example.stargram.domain.user.exception;
 
-import com.example.stargram.global.error.exception.ErrorCode;
-import com.example.stargram.global.error.exception.GlobalException;
+import com.example.stargram.global.error.ErrorCode;
+import com.example.stargram.global.error.exception.SnsException;
 
-public class UserNotFoundException extends GlobalException {
+public class UserNotFoundException extends SnsException {
 
-    public static final GlobalException EXCEPTION =
+    public static final SnsException EXCEPTION =
             new UserNotFoundException();
 
     private UserNotFoundException() {
