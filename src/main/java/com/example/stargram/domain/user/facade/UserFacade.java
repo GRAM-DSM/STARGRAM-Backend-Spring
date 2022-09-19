@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @RequiredArgsConstructor
 @Component
 public class UserFacade {
@@ -23,7 +25,7 @@ public class UserFacade {
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
 
-    public User getUserById(Long userId) {
+    public User getUserById(UUID userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
