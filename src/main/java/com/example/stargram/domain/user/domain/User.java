@@ -3,17 +3,21 @@ package com.example.stargram.domain.user.domain;
 
 import com.sun.istack.NotNull;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.UUID;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(generator = "uuid2")
@@ -30,21 +34,47 @@ public class User {
     private String email;
 
     @NotNull
-    @Column(columnDefinition = "VARCHAR(256)")
+    @Column(columnDefinition = "VARCHAR(60)")
     private String password;
 
-    @NotNull
-    @Column(columnDefinition = "VARCHAR(5)")
-    private String name;
+    @Builder
+    public User(String email, String accountId, String password) {
+        this.email = email;
+        this.accountId = accountId;
+        this.password = password;
+    }
 
-    @NotNull
-    @Column(columnDefinition = "VARCHAR(30)")
-    private String introduce;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
 
-    @NotNull
-    @Column(columnDefinition = "VARCHAR(300)")
-    private String photo;
+    @Override
+    public String getUsername() {
+        return accountId;
+    }
 
-    private String link;
+    public String getPassword() {
+        return null;
+    }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
