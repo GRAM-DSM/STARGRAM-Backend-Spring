@@ -42,7 +42,7 @@ public class JwtTokenProvider {
 
     @Value("${jwt.secret}")
     public void setSecretKey(String secretKey) {
-        this.SECRET_KEY = Base64.getEncoder().encodeToString(secretKey.getBytes(StandardCharsets.UTF_8));
+        this.SECRET_KEY = Base64.getEncoder().encodeToString(secretKey.getBytes());
     }
 
     public String createJwtAccessToken(String username) {
