@@ -1,38 +1,31 @@
 package com.example.stargram.domain.auth.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.TimeToLive;
 import org.springframework.data.redis.core.index.Indexed;
 
-import java.io.Serializable;
-
-@Builder
 @Getter
-@NoArgsConstructor
-@RedisHash(value = "refresh_token")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
+@RedisHash
 public class RefreshToken {
 
     @Id
-    private String userName;
+    private String accountId;
 
     @Indexed
-    private String refreshToken;
+    private String token;
 
     @TimeToLive
-    private Long refreshExpiration;
+    private Long timeToLive;
 
-    @Builder
-    public RefreshToken(String userName, String refreshToken, Long refreshExpiration) {
-        this.userName = userName;
-        this.refreshToken = refreshToken;
-        this.refreshExpiration = refreshExpiration;
+    public void updateToken(String token, Long timeToLive) {
+        this.token = token;
+        this.timeToLive = timeToLive;
     }
 
-    public RefreshToken (Long RefreshExp) {
-        this.refreshExpiration = RefreshExp;
-    }
 }
+
