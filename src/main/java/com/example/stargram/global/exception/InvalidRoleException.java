@@ -1,6 +1,6 @@
 package com.example.stargram.global.exception;
 
-import com.example.stargram.global.error.ErrorCode;
+import com.example.stargram.global.error.exception.ErrorCode;
 import com.example.stargram.global.error.exception.SnsException;
 
 public class InvalidRoleException extends SnsException {
