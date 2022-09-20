@@ -13,8 +13,4 @@ public class CreateFeedRequest {
 
     private String category;
 
-    private String url;
-
-
-
 }
