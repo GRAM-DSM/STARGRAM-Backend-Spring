@@ -1,6 +1,5 @@
 package com.example.stargram.global.error.exception;
 
-import com.example.stargram.global.error.ErrorCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
