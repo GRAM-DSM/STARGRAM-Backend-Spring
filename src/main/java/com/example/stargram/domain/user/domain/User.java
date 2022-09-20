@@ -8,12 +8,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.UUID;
 
 @Getter
@@ -48,6 +44,7 @@ public class User {
         this.email = email;
         this.accountId = accountId;
         this.password = password;
+        this.authority = Authority.USER;
     }
 
 }
