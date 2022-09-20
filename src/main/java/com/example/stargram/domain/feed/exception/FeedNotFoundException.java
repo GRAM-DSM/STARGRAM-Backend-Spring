@@ -1,6 +1,6 @@
 package com.example.stargram.domain.feed.exception;
 
-import com.example.stargram.global.error.ErrorCode;
+import com.example.stargram.global.error.exception.ErrorCode;
 import com.example.stargram.global.error.exception.SnsException;
 
 public class FeedNotFoundException extends SnsException {
