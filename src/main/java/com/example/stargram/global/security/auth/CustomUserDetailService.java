@@ -16,6 +16,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
     public UserDetails loadUserByUsername(String accountId) throws UsernameNotFoundException {
         return userRepository.findByAccountId(accountId)
+                .map(AuthDetails::new)
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
 }
