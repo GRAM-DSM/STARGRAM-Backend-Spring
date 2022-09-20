@@ -26,7 +26,7 @@ public class User implements UserDetails {
     private UUID id;
 
     @NotNull
-    @Column(columnDefinition = "VARCHAR(10)")
+    @Column(columnDefinition = "VARCHAR(10)", unique = true)
     private String accountId;
 
     @NotNull
