@@ -16,9 +16,8 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 jwt:
-  header: ${HEADER}
-  prefix: ${PREFIX}
-  secret: ${SECRET}
-  exp:
-    access: ${ACCESS}
-    refresh: ${REFRESH}
+  secret-key: ${JWT_SECRET}
+  access-exp: ${JWT_ACCESS_EXP}
+  refresh-exp: ${JWT_REFRESH_EXP}
+  header: ${JWT_HEADER}
+  prefix: ${JWT_PREFIX}
