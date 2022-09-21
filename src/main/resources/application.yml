@@ -3,8 +3,9 @@ spring:
     database: mysql
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     open-in-view: false
+    generate-ddl: true
 
   jackson:
     property-naming-strategy: SNAKE_CASE
