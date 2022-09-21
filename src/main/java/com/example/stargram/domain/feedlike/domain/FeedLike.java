@@ -1,7 +1,8 @@
-package com.example.stargram.domain.like.domain;
+package com.example.stargram.domain.feedlike.domain;
 
 import com.example.stargram.domain.feed.domain.Feed;
 import com.example.stargram.domain.user.domain.User;
+import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,10 +20,12 @@ public class FeedLike {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "feed_id")
     private Feed feed;

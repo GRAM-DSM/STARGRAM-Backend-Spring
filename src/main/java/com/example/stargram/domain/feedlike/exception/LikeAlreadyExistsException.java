@@ -1,4 +1,4 @@
-package com.example.stargram.domain.like.exception;
+package com.example.stargram.domain.feedlike.exception;
 
 import com.example.stargram.global.error.exception.ErrorCode;
 import com.example.stargram.global.error.exception.SnsException;

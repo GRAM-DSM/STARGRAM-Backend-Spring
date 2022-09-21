@@ -1,12 +1,12 @@
-package com.example.stargram.domain.like.service;
+package com.example.stargram.domain.feedlike.service;
 
 
 import com.example.stargram.domain.feed.domain.Feed;
 import com.example.stargram.domain.feed.domain.repository.FeedRepository;
 import com.example.stargram.domain.feed.exception.FeedNotFoundException;
-import com.example.stargram.domain.like.domain.FeedLike;
-import com.example.stargram.domain.like.domain.repository.FeedLikeRepository;
-import com.example.stargram.domain.like.exception.LikeAlreadyExistsException;
+import com.example.stargram.domain.feedlike.domain.FeedLike;
+import com.example.stargram.domain.feedlike.domain.repository.FeedLikeRepository;
+import com.example.stargram.domain.feedlike.exception.LikeAlreadyExistsException;
 import com.example.stargram.domain.user.domain.User;
 import com.example.stargram.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;

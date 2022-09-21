@@ -1,6 +1,6 @@
-package com.example.stargram.domain.like.presentation;
+package com.example.stargram.domain.feedlike.presentation;
 
-import com.example.stargram.domain.like.service.FeedLikeService;
+import com.example.stargram.domain.feedlike.service.FeedLikeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

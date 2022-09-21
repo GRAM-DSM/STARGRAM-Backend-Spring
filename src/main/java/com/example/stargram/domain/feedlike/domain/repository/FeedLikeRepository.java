@@ -1,6 +1,6 @@
-package com.example.stargram.domain.like.domain.repository;
+package com.example.stargram.domain.feedlike.domain.repository;
 
-import com.example.stargram.domain.like.domain.FeedLike;
+import com.example.stargram.domain.feedlike.domain.FeedLike;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.math.BigInteger;
