@@ -2,21 +2,21 @@ package com.example.stargram.domain.like.domain;
 
 import com.example.stargram.domain.feed.domain.Feed;
 import com.example.stargram.domain.user.domain.User;
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigInteger;
 
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Like {
+public class FeedLike {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
 
     @ManyToOne
@@ -26,4 +26,10 @@ public class Like {
     @ManyToOne
     @JoinColumn(name = "feed_id")
     private Feed feed;
+
+    @Builder
+    public FeedLike(User user, Feed feed) {
+        this.feed = feed;
+        this.user = user;
+    }
 }
