@@ -9,6 +9,7 @@ import lombok.Getter;
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ErrorCode {
 
+    LIKE_ALREADY_EXISTS(409, "LIKE-409-1","Like Already Exists"),
     EXPIRED_JWT(401, "COMMON-401-1", "Expired Jwt"),
     INVALID_JWT(401, "COMMON-401-2", "Invalid Jwt"),
     INTERNAL_SERVER_ERROR(500, "SERVER-500-1", "Internal Server Error"),
