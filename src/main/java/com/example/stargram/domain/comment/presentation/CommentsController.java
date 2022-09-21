@@ -14,7 +14,7 @@ public class CommentsController {
 
     private final CreateCommentsService createCommentService;
 
-    @PostMapping
+    @PostMapping("/{id}")
     public void create(@RequestBody CreateCommentRequest createCommentRequest, @PathVariable UUID id) {
         createCommentService.execute(createCommentRequest, id);
 
