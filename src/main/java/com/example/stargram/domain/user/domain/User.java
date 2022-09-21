@@ -15,6 +15,7 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@Table(name = "UserTbl")
 public class User {
 
     @Id
@@ -35,7 +36,6 @@ public class User {
     @Column(columnDefinition = "VARCHAR(60)")
     private String password;
 
-    @NotNull
     @Enumerated(EnumType.STRING)
     private Authority authority;
 
