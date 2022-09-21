@@ -14,6 +14,7 @@ import java.util.UUID;
 
 @Getter
 @NoArgsConstructor
+@Table(name = "FeedTbl")
 @Entity
 public class Feed extends BaseTimeEntity {
 
