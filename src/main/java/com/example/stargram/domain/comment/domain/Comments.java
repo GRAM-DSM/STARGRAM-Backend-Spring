@@ -42,4 +42,8 @@ public class Comments extends BaseTimeEntity {
         this.feed = feed;
         this.user = user;
     }
+
+    public void updateComments(String content) {
+        this.content = content;
+    }
 }
