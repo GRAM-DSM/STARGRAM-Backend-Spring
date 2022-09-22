@@ -23,8 +23,8 @@ public class CreateCommentsService {
     private final UserFacade userFacade;
 
     @Transactional
-    public void execute(CreateCommentRequest createCommentRequest, UUID id) {
-        Feed feed = feedRepository.findById(id).orElseThrow(RuntimeException::new);
+    public void execute(CreateCommentRequest createCommentRequest) {
+        Feed feed = feedRepository.findById(createCommentRequest.getFeedUuid()).orElseThrow(RuntimeException::new);
 
         User user = userFacade.getCurrentUser();
 
