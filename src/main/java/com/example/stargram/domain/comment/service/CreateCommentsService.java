@@ -12,8 +12,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.UUID;
-
 @RequiredArgsConstructor
 @Service
 public class CreateCommentsService {
@@ -24,17 +22,17 @@ public class CreateCommentsService {
 
     @Transactional
     public void execute(CreateCommentRequest createCommentRequest) {
-        Feed feed = feedRepository.findById(createCommentRequest.getFeedUuid()).orElseThrow(RuntimeException::new);
-
         User user = userFacade.getCurrentUser();
 
-        commentRepository.save(
-                Comments.builder()
-                        .user(user)
-                        .feed(feed)
-                        .content(createCommentRequest.getContent())
-                        .build()
-        );
+        Feed feed = feedRepository.findById(createCommentRequest.getFeedUuid())
+                .orElseThrow(RuntimeException::new);
+
+        Comments comments = Comments.builder()
+                .user(user)
+                .feed(feed)
+                .content(createCommentRequest.getContent())
+                .build();
+        commentRepository.save(comments);
 
     }
 }
