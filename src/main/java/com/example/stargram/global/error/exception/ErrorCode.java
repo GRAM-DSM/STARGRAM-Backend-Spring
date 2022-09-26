@@ -9,6 +9,8 @@ import lombok.Getter;
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ErrorCode {
 
+    SAVE_IMAGE_FAILED(400, "COMMON-400-1", "Save Image Failed"),
+    IMAGE_VALUE_NOT_FOUND(400, "COMMON-404-1", "Image Value Not Found"),
     LIKE_ALREADY_EXISTS(409, "LIKE-409-1","Like Already Exists"),
     EXPIRED_JWT(401, "COMMON-401-1", "Expired Jwt"),
     INVALID_JWT(401, "COMMON-401-2", "Invalid Jwt"),
