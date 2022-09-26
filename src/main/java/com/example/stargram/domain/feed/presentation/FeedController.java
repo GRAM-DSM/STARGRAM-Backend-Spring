@@ -26,14 +26,14 @@ public class FeedController {
         createFeedService.execute(request);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteFeed(@PathVariable UUID id) {
         deleteFeedService.execute(id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping("/{id}")
-    public void updateFeed(@PathVariable UUID id, @RequestBody UpdateFeedRequest updateFeedRequest) {
-        updateFeedService.execute(id, updateFeedRequest);
+    public void updateFeed(@PathVariable UUID id, @RequestBody UpdateFeedRequest request) {
+        updateFeedService.execute(id, request);
     }
 }
