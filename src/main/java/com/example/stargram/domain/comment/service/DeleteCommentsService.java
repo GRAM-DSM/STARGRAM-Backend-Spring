@@ -15,19 +15,20 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class DeleteCommentsService {
 
-   private final CommentsRepository commentsRepository;
-   private final UserFacade userFacade;
+    private final CommentsRepository commentsRepository;
+    private final UserFacade userFacade;
 
-   @Transactional
-   public void execute(Long id) {
-      User user = userFacade.getCurrentUser();
+    @Transactional
+    public void execute(Long id) {
+        User user = userFacade.getCurrentUser();
 
-      Comments comments = commentsRepository.findById(id).orElseThrow(RuntimeException::new);
+        Comments comments = commentsRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
 
-      if(!comments.getUser().equals(user)){
-         throw InvalidRoleException.EXCEPTION;
-      }
+        if (!comments.getUser().equals(user)) {
+            throw InvalidRoleException.EXCEPTION;
+        }
 
-      commentsRepository.delete(comments);
-   }
+        commentsRepository.delete(comments);
+    }
 }
