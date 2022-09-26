@@ -25,12 +25,13 @@ public class UpdateFeedService {
         User user = userFacade.getCurrentUser();
 
         Feed feed = feedRepository.findById(id)
-                .orElseThrow(()-> FeedNotFoundException.EXCEPTION);
+                .orElseThrow(() -> FeedNotFoundException.EXCEPTION);
 
-        if(!feed.getUser().equals(user)){
+        if (!feed.getUser().equals(user)) {
             throw InvalidRoleException.EXCEPTION;
         }
+
         feed.updateFeed(updateFeedRequest.getTitle(), updateFeedRequest.getContent());
-        }
     }
+}
 
