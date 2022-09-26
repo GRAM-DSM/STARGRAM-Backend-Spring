@@ -4,8 +4,8 @@ package com.example.stargram.domain.comment.service;
 import com.example.stargram.domain.comment.domain.Comments;
 import com.example.stargram.domain.comment.domain.repository.CommentsRepository;
 import com.example.stargram.domain.comment.presentation.dto.request.UpdateCommentRequest;
-import com.example.stargram.domain.feed.domain.Feed;
 import com.example.stargram.domain.feed.domain.repository.FeedRepository;
+import com.example.stargram.domain.feed.exception.FeedNotFoundException;
 import com.example.stargram.domain.user.domain.User;
 import com.example.stargram.domain.user.facade.UserFacade;
 import com.example.stargram.global.exception.InvalidRoleException;
@@ -22,16 +22,20 @@ public class UpdateCommentService {
     private final UserFacade userFacade;
 
     @Transactional
-    public void execute(UpdateCommentRequest updateCommentRequest, Long id) {
-        Comments comments = commentsRepository.findById(id).orElseThrow(RuntimeException::new);
-        Feed feed = feedRepository.findById(updateCommentRequest.getFeedUuid()).orElseThrow(RuntimeException::new);
-
+    public void execute(UpdateCommentRequest request, Long id) {
         User user = userFacade.getCurrentUser();
 
-        if(!comments.getUser().equals(user)){
+        if (feedRepository.existsById(request.getFeedUuid())) {
+            throw FeedNotFoundException.EXCEPTION;
+        }
+
+        Comments comments = commentsRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
+
+        if (!comments.getUser().equals(user)) {
             throw InvalidRoleException.EXCEPTION;
         }
 
-        comments.updateComments(updateCommentRequest.getContent());
+        comments.updateComments(request.getContent());
     }
 }
