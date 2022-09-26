@@ -39,6 +39,8 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST,"/auth/signup").permitAll()
                 .antMatchers(HttpMethod.POST,"/auth/signin").permitAll()
 
+                .antMatchers(HttpMethod.POST, "/image").permitAll()
+
                 .and()
                 .apply(new FilterConfig(jwtTokenProvider, objectMapper))
                 .and()
