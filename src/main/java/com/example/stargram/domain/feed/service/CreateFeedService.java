@@ -7,7 +7,6 @@ import com.example.stargram.domain.user.domain.User;
 import com.example.stargram.domain.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -17,15 +16,15 @@ public class CreateFeedService {
 
     private final UserFacade userFacade;
 
-    @Transactional
     public void execute(CreateFeedRequest createFeedRequest) {
         User user = userFacade.getCurrentUser();
 
-        feedRepository.save(Feed.builder()
-                        .title(createFeedRequest.getTitle())
-                        .user(user)
-                        .category(createFeedRequest.getCategory())
-                        .content(createFeedRequest.getContent())
-                .build());
+        Feed feed = Feed.builder()
+                .title(createFeedRequest.getTitle())
+                .user(user)
+                .category(createFeedRequest.getCategory())
+                .content(createFeedRequest.getContent())
+                .build();
+        feedRepository.save(feed);
     }
 }
