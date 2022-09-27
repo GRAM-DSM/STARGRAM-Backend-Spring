@@ -3,6 +3,8 @@ package com.example.stargram.domain.feed.presentation.dto.request;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @NoArgsConstructor
 public class CreateFeedRequest {
@@ -13,4 +15,5 @@ public class CreateFeedRequest {
 
     private String category;
 
+    private List<String> url;
 }
