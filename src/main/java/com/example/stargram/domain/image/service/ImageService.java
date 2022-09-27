@@ -16,8 +16,6 @@ import java.util.stream.Collectors;
 public class ImageService {
 
     private final S3Facade s3Facade;
-    private final UserFacade userFacade;
-    private final ImageRepository imageRepository;
 
     public ImageUrlResponse execute(List<MultipartFile> images) {
         List<String> imageUrl = images.stream()
