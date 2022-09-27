@@ -1,6 +1,7 @@
 package com.example.stargram.domain.image.domain;
 
 
+import com.example.stargram.domain.feed.domain.Feed;
 import com.example.stargram.domain.user.domain.User;
 import com.sun.istack.NotNull;
 import lombok.Builder;
@@ -24,16 +25,16 @@ public class Image {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "feed_id")
+    private Feed feed;
 
     @NotNull
     @Column(columnDefinition = "VARCHAR(300)")
     private String url;
 
     @Builder
-    public Image (User user, String url) {
-        this.user = user;
+    public Image (Feed feed, String url) {
+        this.feed = feed;
         this.url = url;
     }
 }
