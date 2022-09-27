@@ -4,7 +4,6 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.example.stargram.domain.image.domain.repository.ImageRepository;
 import com.example.stargram.global.exception.ImageValueNotFoundException;
 import com.example.stargram.global.exception.SaveImageFailedException;
 import lombok.RequiredArgsConstructor;
@@ -21,11 +20,10 @@ public class S3Facade {
     private final AmazonS3Client amazonS3Client;
 
     public String uploadImage(MultipartFile image) {
-
-        if (image.isEmpty()) {
+        if (image.isEmpty() || image.getOriginalFilename() == null) {
             throw ImageValueNotFoundException.EXCEPTION;
         }
-        String fileName = s3Properties.getBucket() + "/" + UUID.randomUUID() + image.getOriginalFilename();
+        String fileName = UUID.randomUUID() + image.getOriginalFilename();
 
         try {
             PutObjectRequest putObjectRequest = new PutObjectRequest(
@@ -39,8 +37,8 @@ public class S3Facade {
         } catch (Exception e) {
             throw SaveImageFailedException.EXCEPTION;
         }
-        return getFileUrl(fileName);
 
+        return getFileUrl(fileName);
     }
 
 
