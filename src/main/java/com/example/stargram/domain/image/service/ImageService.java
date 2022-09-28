@@ -1,8 +1,6 @@
 package com.example.stargram.domain.image.service;
 
-import com.example.stargram.domain.image.domain.repository.ImageRepository;
 import com.example.stargram.domain.image.presentation.dto.response.ImageUrlResponse;
-import com.example.stargram.domain.user.facade.UserFacade;
 import com.example.stargram.global.annotation.ServiceWithTransactionalReadOnly;
 import com.example.stargram.infrastructure.image.s3.S3Facade;
 import lombok.RequiredArgsConstructor;
