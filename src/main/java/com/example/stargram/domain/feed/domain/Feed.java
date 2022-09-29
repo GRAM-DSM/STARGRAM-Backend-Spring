@@ -20,7 +20,7 @@ public class Feed extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name ="uuid2", strategy = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Column(columnDefinition = "BINARY(16)")
     private UUID id;
 
@@ -39,16 +39,18 @@ public class Feed extends BaseTimeEntity {
     @Column(length = 10)
     private String category;
 
-    @NotNull
     private int heartCount;
 
+    private int commentCount;
+
     @Builder
-    public Feed (String title, String content, String category, User user, int heartCount){
+    public Feed(String title, String content, String category, User user, int heartCount, int commentCount) {
         this.title = title;
         this.content = content;
         this.category = category;
         this.user = user;
         this.heartCount = heartCount;
+        this.commentCount = commentCount;
     }
 
     public void updateFeed(String title, String content) {
@@ -57,10 +59,19 @@ public class Feed extends BaseTimeEntity {
     }
 
     public void addHeartCount() {
-        this.heartCount += 1;
+        this.heartCount++;
     }
 
     public void removeHeartCount() {
-        this.heartCount -= 1;
+        this.heartCount--;
     }
+
+    public void addCommentCount() {
+        this.commentCount++;
+    }
+
+    public void removeCommentCount() {
+        this.commentCount--;
+    }
+
 }
