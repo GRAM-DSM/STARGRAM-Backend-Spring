@@ -36,5 +36,4 @@ public class Like {
         this.feed = feed;
         this.user = user;
     }
-
 }
