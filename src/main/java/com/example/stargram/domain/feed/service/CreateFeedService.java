@@ -38,5 +38,6 @@ public class CreateFeedService {
                     .build();
             imageRepository.save(image);
         }
+        feed.addCommentCount();
     }
 }
