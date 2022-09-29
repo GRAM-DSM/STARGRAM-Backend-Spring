@@ -4,6 +4,7 @@ package com.example.stargram.domain.like.domain;
 import com.example.stargram.domain.feed.domain.Feed;
 import com.example.stargram.domain.user.domain.User;
 import com.sun.istack.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +18,7 @@ import javax.persistence.*;
 public class Like {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -28,5 +30,11 @@ public class Like {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "feed_id")
     private Feed feed;
+
+    @Builder
+    public Like(User user, Feed feed) {
+        this.feed = feed;
+        this.user = user;
+    }
 
 }
