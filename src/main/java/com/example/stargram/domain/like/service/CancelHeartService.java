@@ -4,6 +4,7 @@ package com.example.stargram.domain.like.service;
 import com.example.stargram.domain.feed.domain.Feed;
 import com.example.stargram.domain.feed.facade.FeedFacade;
 import com.example.stargram.domain.like.domain.repository.LikeRepository;
+import com.example.stargram.domain.like.exception.CancelLikeExistsException;
 import com.example.stargram.domain.like.facade.LikeFacade;
 import com.example.stargram.domain.like.presentation.dto.response.LikeResponse;
 import com.example.stargram.domain.user.domain.User;
@@ -16,7 +17,7 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 @Service
-public class LikeService {
+public class CancelHeartService {
 
     private final LikeRepository likeRepository;
     private final UserFacade userFacade;
@@ -28,14 +29,21 @@ public class LikeService {
         User user = userFacade.getCurrentUser();
         Feed feed = feedFacade.getFeedId(feedId);
 
-        if(likeFacade.confirmLike(user, feed)) {
-            throw ?
+        if (!likeFacade.confirmHeart(user, feed)) {
+            throw CancelLikeExistsException.EXCEPTION;
         }
 
-        return addLike(user, feed);
+        feed.removeHeartCount();
+        return removeHeart(user, feed);
     }
 
-    private LikeResponse addLike(User user, Feed feed) {
+    private LikeResponse removeHeart(User user, Feed feed) {
 
+        likeRepository.deleteByUserAndFeed(user, feed);
+
+        return LikeResponse.builder()
+                .heartCount(feed.getHeartCount())
+                .heart(likeFacade.confirmHeart(user, feed))
+                .build();
     }
 }
