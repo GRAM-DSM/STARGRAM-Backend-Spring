@@ -31,7 +31,7 @@ public class DeleteFeedService {
         if(!feed.getUser().equals(user)){
             throw InvalidRoleException.EXCEPTION;
         }
-
         feedRepository.delete(feed);
+        feed.removeCommentCount();
     }
 }
