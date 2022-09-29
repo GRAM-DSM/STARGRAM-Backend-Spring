@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class LikeFacade {
     private final LikeRepository likeRepository;
 
-    public boolean confirmLike(User user, Feed feed) {
-        return likeRepository.existsById(user, feed);
+    public boolean confirmHeart(User user, Feed feed) {
+        return likeRepository.existsByUserAndFeed(user, feed);
     }
 }
