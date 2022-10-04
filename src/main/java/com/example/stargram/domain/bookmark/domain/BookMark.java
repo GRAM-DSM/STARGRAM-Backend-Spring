@@ -31,7 +31,7 @@ public class BookMark {
 
     @Builder
     public BookMark(User user, Feed feed) {
-        this.feed = feed;
         this.user = user;
+        this.feed = feed;
     }
 }
