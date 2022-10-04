@@ -33,7 +33,7 @@ public class PostBookMarkService {
                 .feed(feed)
                 .user(user)
                 .build();
-        bookMarkRepository.save();
+        bookMarkRepository.save(bookMark);
     }
 
 }
