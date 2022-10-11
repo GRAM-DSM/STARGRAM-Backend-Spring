@@ -18,8 +18,8 @@ public class CommentsController {
     private final UpdateCommentService updateCommentService;
 
     @PostMapping("/{id}")
-    public void create(@RequestBody CreateCommentRequest createCommentRequest) {
-        createCommentService.execute(createCommentRequest);
+    public void create(@RequestBody CreateCommentRequest createCommentRequest, @PathVariable UUID id) {
+        createCommentService.execute(createCommentRequest, id);
 
     }
 
