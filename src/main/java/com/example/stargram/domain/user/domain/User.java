@@ -7,6 +7,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -25,7 +26,7 @@ public class User {
     private UUID id;
 
     @NotNull
-    @Column(columnDefinition = "VARCHAR(10)", unique = true)
+    @Column(columnDefinition = "VARCHAR(10)")
     private String accountId;
 
     @NotNull
