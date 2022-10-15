@@ -32,7 +32,7 @@ cloud:
   aws:
     credentials:
       accessKey: AKIAQYAPUX5DIOMSJVXC
-      secretKey: ${S3_SECRET_KEY}
+      secretKey: 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
     s3:
       bucket: ${S3_BUCKET}
     region:
