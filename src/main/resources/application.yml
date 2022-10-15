@@ -22,11 +22,11 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 jwt:
-  secret-key: ${JWT_SECRET}
-  access-exp: ${JWT_ACCESS_EXP}
-  refresh-exp: ${JWT_REFRESH_EXP}
-  header: ${JWT_HEADER}
-  prefix: ${JWT_PREFIX}
+  secret-key: secret
+  access-exp: 30000
+  refresh-exp: 30000
+  header: Authorization
+  prefix: Bearer
 
 cloud:
   aws:
