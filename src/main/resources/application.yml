@@ -23,7 +23,7 @@ spring:
 
 jwt:
   secret-key: ${JWT_SECRET}
-  access-exp: 36000
+  access-exp: ${JWT_ACCESS_EXP}
   refresh-exp: ${JWT_REFRESH_EXP}
   header: ${JWT_HEADER}
   prefix: ${JWT_PREFIX}
@@ -49,3 +49,9 @@ logging:
           EC2MetadataUtils: error
 
 
+
+${JWT_ACCESS_EXP}: 30000
+${JWT_REFRESH_EXP}: 30000
+${JWT_SECRET}: secret
+${JWT_HEADER}: Authorization
+${JWT_PREFIX}: Bearer
