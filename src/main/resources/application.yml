@@ -16,7 +16,7 @@ spring:
       max-request-size: 5MB
 
   datasource:
-    url: jdbc:mysql://${DBURL}:3306/${DBNAME}?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://database-1.cj4qlua9nvsk.ap-northeast-2.rds.amazonaws.com:3306/${DBNAME}?serverTimezone=Asia/Seoul
     username: ${USER}
     password: ${PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
