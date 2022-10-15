@@ -34,9 +34,9 @@ cloud:
       accessKey: AKIAQYAPUX5DIOMSJVXC
       secretKey: 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
     s3:
-      bucket: ${S3_BUCKET}
+      bucket: gram.stargram
     region:
-      static: ${S3_REGION}
+      static: ap-northeast-2
       auto: false
     stack:
       auto: false
