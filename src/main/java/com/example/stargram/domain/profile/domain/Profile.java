@@ -3,14 +3,20 @@ package com.example.stargram.domain.profile.domain;
 
 import com.example.stargram.domain.user.domain.User;
 import com.sun.istack.NotNull;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+/*
+@Getter
+@NoArgsConstructor
+@Table(name = "ProfileTbl")
 @Entity
 public class Profile {
 
-    @Column(columnDefinition = "VARCHAR(5)")
     @Id
+    @Column(columnDefinition = "VARCHAR(5)")
     private String name;
 
     @NotNull
@@ -18,7 +24,7 @@ public class Profile {
     private String introduce;
 
     @NotNull
-    @Column(columnDefinition = "VACHAR(300)")
+    @Column(columnDefinition = "VARCHAR(300)")
     private String photo;
 
     @NotNull
@@ -31,3 +37,4 @@ public class Profile {
 
 
 }
+*/
