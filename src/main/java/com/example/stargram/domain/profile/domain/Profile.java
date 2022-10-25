@@ -3,12 +3,13 @@ package com.example.stargram.domain.profile.domain;
 
 import com.example.stargram.domain.user.domain.User;
 import com.sun.istack.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-/*
+
 @Getter
 @NoArgsConstructor
 @Table(name = "ProfileTbl")
@@ -35,6 +36,14 @@ public class Profile {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Builder
+    public Profile(String name, String introduce, String photo, String link, User user) {
+        this.name = name;
+        this.introduce = introduce;
+        this.link = link;
+        this.photo = photo;
+        this.user = user;
+    }
+
 
 }
-*/
