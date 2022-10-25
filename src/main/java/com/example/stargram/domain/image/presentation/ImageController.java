@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RequiredArgsConstructor
-@RequestMapping("/image")
+@RequestMapping("/feeds/image")
 @RestController
 public class ImageController {
 
