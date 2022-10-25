@@ -1,5 +1,8 @@
 package com.example.stargram.domain.feed.service;
 
+/*
+
+import com.example.stargram.domain.feed.presentation.dto.response.FeedGetResponse;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,5 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class FeedGetDetailService {
 
     @Transactional
-    public
+    public FeedGetResponse execute() {
+
+    }
 }
+*/
