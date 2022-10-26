@@ -7,6 +7,7 @@ import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -45,7 +46,7 @@ public class Feed extends BaseTimeEntity {
     private int commentCount;
 
     @Builder
-    public Feed(String title, String content, String category, User user, int heartCount, int commentCount, ZonedDateTime CreateAt) {
+    public Feed(String title, String content, String category, User user, int heartCount, int commentCount) {
         this.title = title;
         this.content = content;
         this.category = category;
