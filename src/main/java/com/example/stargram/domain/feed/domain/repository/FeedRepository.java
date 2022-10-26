@@ -9,6 +9,6 @@ import java.util.UUID;
 
 public interface FeedRepository extends CrudRepository<Feed, UUID> {
 
-    @Query
+    @Query("select f from Feed f join fetch f.user order by f.CreateAt DESC ")
     List<Feed> findAllByJoinFetch();
 }
