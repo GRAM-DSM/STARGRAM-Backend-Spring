@@ -16,27 +16,27 @@ spring:
       max-request-size: 5MB
 
   datasource:
-    url: jdbc:mysql://?serverTimezone=Asia/Seoul
-    username: 
-    password:
+    url: jdbc:mysql://database-1.cj4qlua9nvsk.ap-northeast-2.rds.amazonaws.com:3306/stargram?serverTimezone=Asia/Seoul
+    username: admin
+    password: oliver37632
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 jwt:
-  secret-key:
-  access-exp:
-  refresh-exp:
-  header:
-  prefix:
+  secret-key: secret
+  access-exp: 30000
+  refresh-exp: 30000
+  header: Authorization
+  prefix: Bearer
 
 cloud:
   aws:
     credentials:
-      accessKey:
-      secretKey:
+      accessKey: AKIAQYAPUX5DIOMSJVXC
+      secretKey: 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
     s3:
-      bucket:
+      bucket: gram.stargram
     region:
-      static:
+      static: ap-northeast-2
       auto: false
     stack:
       auto: false
@@ -50,8 +50,8 @@ logging:
 
 
 
-${JWT_ACCESS_EXP}:
-${JWT_REFRESH_EXP}:
-${JWT_SECRET}:
-${JWT_HEADER}:
-${JWT_PREFIX}:
+${JWT_ACCESS_EXP}: 30000
+${JWT_REFRESH_EXP}: 30000
+${JWT_SECRET}: secret
+${JWT_HEADER}: Authorization
+${JWT_PREFIX}: Bearer
