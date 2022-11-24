@@ -46,7 +46,7 @@ public class FeedGetService {
                             .commentCount(feed.getCommentCount())
                             .createAt(feed.getCreateAt())
                             .name(profile.getName())
-                            .image(imageRepository.findByFeedId(feed.getId()).orElseThrow(()-> ImageNotFoundException.EXCEPTION).getUrl())
+                            .image(imageRepository.findAllByFeed_Id(feed.getId()).stream().map(Image::getUrl).collect(Collectors.toList()))
                             .heartType(likeFacade.confirmHeart(user,feed))
                             .build();
                     return feedResponse;

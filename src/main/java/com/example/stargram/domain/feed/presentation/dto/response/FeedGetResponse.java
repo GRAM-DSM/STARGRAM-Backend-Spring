@@ -19,14 +19,14 @@ public class FeedGetResponse {
     @Builder
     public static class FeedResponse {
 
-        UUID feedUuid;
-        String name;
-        String title;
-        ZonedDateTime createAt;
-        int heartCount;
-        int commentCount;
-        String image;
-        boolean heartType;
+        private UUID feedUuid;
+        private String name;
+        private String title;
+        private ZonedDateTime createAt;
+        private int heartCount;
+        private int commentCount;
+        private List<String> image;
+        private boolean heartType;
     }
 
 }

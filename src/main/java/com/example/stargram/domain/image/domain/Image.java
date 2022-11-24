@@ -17,11 +17,10 @@ import java.util.UUID;
 @Table(name = "PhotoTbl")
 @Entity
 public class Image {
+
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name ="uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(32)")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
