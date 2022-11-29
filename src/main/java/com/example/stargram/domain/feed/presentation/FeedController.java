@@ -2,11 +2,9 @@ package com.example.stargram.domain.feed.presentation;
 
 import com.example.stargram.domain.feed.presentation.dto.request.CreateFeedRequest;
 import com.example.stargram.domain.feed.presentation.dto.request.UpdateFeedRequest;
+import com.example.stargram.domain.feed.presentation.dto.response.FeedDetailResponse;
 import com.example.stargram.domain.feed.presentation.dto.response.FeedGetResponse;
-import com.example.stargram.domain.feed.service.CreateFeedService;
-import com.example.stargram.domain.feed.service.DeleteFeedService;
-import com.example.stargram.domain.feed.service.FeedGetService;
-import com.example.stargram.domain.feed.service.UpdateFeedService;
+import com.example.stargram.domain.feed.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,10 +20,15 @@ public class FeedController {
     private final DeleteFeedService deleteFeedService;
     private final UpdateFeedService updateFeedService;
     private final FeedGetService feedGetService;
+    private final FeedGetDetailService feedGetDetailService;
 
     @GetMapping("/list")
     public FeedGetResponse getFeed() {
         return feedGetService.execute();
+    }
+    @GetMapping("/{id}")
+    public FeedDetailResponse.FeedGetDetailResponse getFeedDetail(@PathVariable UUID id) {
+        return feedGetDetailService.execute(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -45,5 +48,7 @@ public class FeedController {
     public void updateFeed(@PathVariable UUID id, @RequestBody UpdateFeedRequest request) {
         updateFeedService.execute(id, request);
     }
+
+
 
 }
