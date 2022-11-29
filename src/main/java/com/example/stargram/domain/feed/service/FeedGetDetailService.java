@@ -55,6 +55,7 @@ public class FeedGetDetailService {
                                     .profileImage(profileRepository.findByUserId(feed.getUser().getId()).orElseThrow(() -> ProfileNotFoundException.EXCEPTION).getPhoto())
                                     .content(comments.getContent())
                                     .name(profile.getName())
+                                    .createAt(comments.getCreateAt())
                                     .build()).collect(Collectors.toList()))
                             .build();
                     return feedGetDetailResponse;
