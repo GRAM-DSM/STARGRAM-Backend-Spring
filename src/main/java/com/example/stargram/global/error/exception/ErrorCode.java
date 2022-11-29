@@ -26,7 +26,8 @@ public enum ErrorCode {
     USER_NOT_FOUND(404, "USER-404-1", "User Not Found"),
     FEED_NOT_FOUND(404, "FEED-404-1", "Feed Not Found"),
     PROFILE_NOT_FOUND(404, "PROFILE-404-1", "Profile Not Found"),
-    IMAGE_NOT_FOUND(404, "IMAGE-404-1", "Image Not Found");
+    IMAGE_NOT_FOUND(404, "IMAGE-404-1", "Image Not Found"),
+    FORBIDDEN(403, "COMMON-403-1", "Forbidden");
 
     private final int status;
     private final String code;
