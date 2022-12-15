@@ -16,9 +16,9 @@ spring:
       max-request-size: 5MB
 
   datasource:
-    url: jdbc:mysql://database-2.c6apyqe6674e.ap-northeast-2.rds.amazonaws.com:3306/stargram
-    username: admin
-    password: cjb82244
+    url: jdbc:mysql://3.38.244.38 :3306/stargram
+    username: root
+    password: qwer1234
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 jwt:
