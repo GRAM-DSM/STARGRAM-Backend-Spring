@@ -33,7 +33,7 @@ public class Profile {
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "id", nullable = false)
     private User user;
 
     @Builder
