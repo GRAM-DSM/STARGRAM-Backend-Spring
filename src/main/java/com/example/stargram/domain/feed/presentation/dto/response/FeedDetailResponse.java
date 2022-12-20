@@ -37,6 +37,8 @@ public class FeedDetailResponse {
 
         private boolean favorite;
 
+        private boolean heartType;
+
         private List<String> images;
 
         private List<CommentsResponse> comments;
