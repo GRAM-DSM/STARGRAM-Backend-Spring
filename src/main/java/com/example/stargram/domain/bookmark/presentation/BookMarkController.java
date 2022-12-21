@@ -22,8 +22,8 @@ public class BookMarkController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{bookmark-id}")
-    public void deleteBookMark(@PathVariable("bookmark-id")Long bookmarkId) {
-        deleteBookMarkService.execute(bookmarkId);
+    @DeleteMapping("/{feed-id}")
+    public void deleteBookMark(@PathVariable("feed-id")UUID id) {
+        deleteBookMarkService.execute(id);
     }
 }
