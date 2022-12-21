@@ -4,6 +4,7 @@ package com.example.stargram.domain.bookmark.presentation;
 import com.example.stargram.domain.bookmark.service.DeleteBookMarkService;
 import com.example.stargram.domain.bookmark.service.PostBookMarkService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -20,6 +21,7 @@ public class BookMarkController {
         postBookMarkService.execute(feedId);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{bookmark-id}")
     public void deleteBookMark(@PathVariable("bookmark-id")Long bookmarkId) {
         deleteBookMarkService.execute(bookmarkId);
