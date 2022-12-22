@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookMarkRepository extends JpaRepository<BookMark, Long> {
     void deleteByUserAndFeed(User user, Feed feed);
+    boolean existsByUserAndFeed(User user, Feed feed);
 }

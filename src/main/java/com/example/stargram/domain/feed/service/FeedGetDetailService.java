@@ -2,6 +2,7 @@ package com.example.stargram.domain.feed.service;
 
 
 
+import com.example.stargram.domain.bookmark.domain.repository.BookMarkRepository;
 import com.example.stargram.domain.comment.domain.repository.CommentsRepository;
 import com.example.stargram.domain.feed.domain.repository.FeedRepository;
 import com.example.stargram.domain.feed.exception.FeedNotFoundException;
@@ -31,6 +32,7 @@ public class FeedGetDetailService {
     private final ProfileRepository profileRepository;
     private final ImageRepository imageRepository;
     private final CommentsRepository commentsRepository;
+    private final BookMarkRepository bookMarkRepository;
 
     @Transactional(readOnly = true)
     public FeedDetailResponse.FeedGetDetailResponse execute(UUID id) {
@@ -48,7 +50,7 @@ public class FeedGetDetailService {
                             .category(feed.getCategory())
                             .heartCount(feed.getHeartCount())
                             .commentCount(feed.getCommentCount())
-                            .favorite(feed.getUser().equals(user))
+                            .favorite(bookMarkRepository.existsByUserAndFeed(user, feed))
                             .heartType(likeFacade.confirmHeart(user, feed))
                             .images(imageRepository.findAllByFeedId(feed.getId()).stream().map(Image::getUrl).collect(Collectors.toList()))
                             .comments(commentsRepository.findAllByFeedId(feed.getId()).stream().map(comments -> FeedDetailResponse.CommentsResponse.builder()
